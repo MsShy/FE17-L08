@@ -1,0 +1,86 @@
+.main-nav {
+
+  @extend .navbar;
+
+  @extend .navbar-fixed-top;
+  &__list {
+    @extend .navbar-nav;
+    @extend .nav;
+    @extend .navbar-right;
+
+  }
+}
+
+.home-page {
+
+  &__article {
+    @include make-md-column(6, 20px);
+
+  }
+  &__slider {
+    @include make-md-column(6);
+
+  }
+  .footer-posts {
+
+    @for $i from 1 through 3 {
+      &__info#{$i} {
+        @include make-md-column(4);
+      }
+    }
+
+  }
+
+}
+
+.portfolio-page {
+
+  @for $i from 1 through 9 {
+    &__img#{$i} {
+      @include make-md-column(4);
+    }
+  }
+}
+
+.my-work-page {
+
+  @for $i from 1 through 12 {
+    &__img#{$i} {
+      @include make-md-column(3);
+    }
+  }
+
+}
+
+.footer {
+  &__block-networks {
+    @include make-md-column(4);
+  }
+  &__block-freelance {
+    @include make-md-column(8);
+  }
+
+  .block-freelance {
+    &__left {
+      @include make-md-column(6);
+
+    }
+    &__right {
+      @include make-md-column(4);
+      @include make-md-column-offset(2);
+
+    }
+  }
+}
+
+.elements-page{
+  &__article-block{
+    @include make-md-column(8);
+
+  }
+&__aside{
+  @include make-md-column(4);
+
+}
+
+}

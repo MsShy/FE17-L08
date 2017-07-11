@@ -1,0 +1,280 @@
+$lineColor: #1c1c1c;
+$navFont: Georgia, sans-serif;
+$navSize: 18px;
+$marginPage: 130px;
+
+html {
+  height: 100%;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
+  display: block;
+}
+
+body {
+  font: 14px/21px Garamond, sans-serif;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/bg-body.png");
+  color: #1c1c1c;
+}
+
+*[id]:before {
+  display: block;
+  content: " ";
+  margin-top: -84px;
+  height: 84px;
+  visibility: hidden;
+}
+
+.wrap {
+  width: 860px;
+  margin: 0 auto;
+  min-height: 100%;
+
+}
+
+.container {
+  width: 860px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.c-flex-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin border-top($height, $style, $color) {
+  border-top: $height $style $color;
+
+}
+
+.line-top {
+  @include border-top(6px, solid, $lineColor);
+  // border-top: 6px solid $lineColor;
+  border-bottom: 1px solid $lineColor;
+  height: 3px;
+
+}
+
+.line-bottom {
+  @include border-top(1px, solid, $lineColor);
+  border-bottom: 6px solid $lineColor;
+  height: 3px;
+
+}
+
+.line-dashed_black {
+  border: 1px dashed $lineColor;
+}
+
+.line-dashed_red {
+
+  border: 1px dashed #b42924;
+}
+
+.img {
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: white;
+}
+
+.text-red {
+  color: #b42924;
+}
+
+/*   header*/
+.header {
+
+  &__logo {
+    float: left;
+  }
+
+  .main-nav {
+    height: $navbarHeight;
+    background: url("../img/bg-header.png") repeat-x;
+    border: none;
+
+    &__list {
+      margin: -1px;
+
+    }
+
+    &__list-item {
+      display: inline-block;
+      float: left;
+      padding: 0 15px;
+
+      &:last-child {
+        padding-right: 0;
+
+      }
+
+      .link--style {
+        display: inline;
+        color: #fff;
+        font-family: $navFont;
+        font-size: $navSize;
+
+      }
+
+      .link--style:hover {
+        border-bottom: 3px solid #fff;
+        background-color: transparent;
+
+      }
+      .link--style:link:active {
+        border-bottom: 3px solid #fff;
+        background-color: transparent;
+
+      }
+      /* .link--active {
+         border-bottom: 3px solid #fff;
+       }*/
+
+    }
+
+    &__link {
+      padding: 0;
+      padding-bottom: 3px;
+
+    }
+  }
+}
+
+/*page home*/
+.home-page {
+  margin-top: $marginPage+10;
+
+}
+
+/*page portfolio*/
+.portfolio-page {
+
+  @for $i from 1 through 9 {
+    &__img#{$i} {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+  }
+}
+
+/*page my work*/
+
+.my-work-page {
+  &__tabs-item {
+    display: none;
+
+  }
+  .tabs-item--active:checked + label {
+    background-color: #1c1c1c;
+    color: white;
+    border-radius: 8%;
+    position: relative;
+    z-index: 1;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      top: 100%;
+      right: 50%;
+      border-top: 4px solid #1c1c1c;
+      min-height: 100%;
+      margin-right: -4px;
+      z-index: 10;
+
+    }
+  }
+  &__content {
+    @extend .my-work-page__tabs-item;
+  }
+
+  @for $i from 1 through 12 {
+    &__img#{$i} {
+      padding: 21px 10px;
+    }
+  }
+
+  .tabs-title--style {
+
+    font-family: $navFont;
+    font-size: $navSize;
+    color: #1c1c1c;
+    font-weight: normal;
+    padding: 10px 11px;
+    border-radius: 8%;
+    margin-right: 14px;
+    cursor: pointer;
+  }
+
+}
+
+@for $i from 1 through 12 {
+  .my-work-page__tabs-item:nth-of-type(#{$i}):checked ~ .my-work-page__content:nth-of-type(#{$i}) {
+    display: block;
+  }
+}
+
+input[type="radio"]:checked + label {
+  border-bottom: 2px solid #fff;
+}
+
+/*footer*/
+
+.footer {
+  width: 100%;
+  height: 350px;
+  background-color: #0e0e0e;
+  color: #fff;
+
+  .block-freelance {
+    &__right {
+      margin-left: 0;
+
+    }
+
+  }
+
+    .fb{
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: url(../img/sprites.png) no-repeat 0 0;
+    }
+
+  .tw{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../img/sprites.png) no-repeat -30px 0;
+  }
+
+  .flick{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../img/sprites.png) no-repeat -62px 0;
+  }
+  .twit{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../img/sprites.png) no-repeat -92px 0;
+  }
+  .vk{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../img/sprites.png) no-repeat -119px 0;
+  }
+
+  }
+
+
+
